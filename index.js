@@ -1,6 +1,7 @@
 let gameIsActive = 0
 let playerWon = false
 let currentPlayer = 'o'
+let playerWhoWon = ''
 const gameBoard = {
     board: [
         0, 0, 0, 
@@ -10,6 +11,8 @@ const gameBoard = {
 }
 function startGame()
 {
+    gameIsActive = true
+    playerWon = false
     while(playerWon === false)
         {
             let slot = prompt(`What slot does ${currentPlayer.toUpperCase()} want to take from 1-9`)
@@ -17,6 +20,7 @@ function startGame()
             if (slot >= 0 && slot <= 8)
                 {
                     board = gameBoard.board
+                    clearBoard(board)
                     fillSlot(slot)
                     playerSwitch()
                     checkForWin(board)
@@ -27,17 +31,27 @@ function startGame()
                 return
             }
         }
-    if(!gameIsActive) gameIsActive = 1 
 }
-// endGame()
-// {
-
-//     if(gameIsActive) gameIsActive = 0
-
-// }
+function clearBoard(board)
+{
+    board = [
+        0, 0, 0, 
+        0, 0, 0,
+        0, 0, 0
+        ]
+}
+function endGame(currentPlayer)
+{
+    if(currentPlayer !== null)
+        {
+            console.log(`The Player ${currentPlayer} has Won!`)
+            playerWon = true
+            gameIsActive = false
+        }
+}
 function playerSwitch()
 {
-    if(currentPlayer === '0')
+    if(currentPlayer === 'o')
     {
             currentPlayer = 'x'
     }
@@ -54,5 +68,24 @@ function fillSlot(slot)
     }
 function checkForWin(board)
 {
-    if (board.includes('x')) playerWon = true
+    const winCases = [
+        [0, 1, 2], // Top row
+        [3, 4, 5], // Middle row
+        [6, 7, 8], // Bottom row
+        [0, 3, 6], // Left column
+        [1, 4, 7], // Middle column
+        [2, 5, 8], // Right column
+        [0, 4, 8], // Diagonal from top-left to bottom-right
+        [2, 4, 6]  // Diagonal from top-right to bottom-left
+    ];
+    for(let i = 0; i < winCases.length; i++)
+        {
+            const [a, b, c] = winCases[i]
+            if(board[a] && typeof board[a] === 'string' && board[a] === board[b] && board[a] === board[c])
+                {
+                   playerWhoWon = board[a].toUpperCase()
+                   endGame(playerWhoWon)
+                }
+        }
+    
 }
