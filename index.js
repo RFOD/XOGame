@@ -12,13 +12,15 @@ function startGame()
 {
     while(playerWon === false)
         {
-            const slot = prompt(`What slot does ${currentPlayer.toUpperCase} want to take from 1-9`)
+            let slot = prompt(`What slot does ${currentPlayer.toUpperCase()} want to take from 1-9`)
             slot--
             if (slot >= 0 && slot <= 8)
                 {
+                    board = gameBoard.board
                     fillSlot(slot)
-                    checkForWin(board)
                     playerSwitch()
+                    checkForWin(board)
+
                 }
             else{
                 console.log(`Slot isn't in the the right interval! Slot = ${slot}`)
@@ -35,24 +37,20 @@ function startGame()
 // }
 function playerSwitch()
 {
-    if(gameIsActive)
-        {
-            if(currentPlayer !== 'x')
-                {
-                    currentPlayer = 'o'
-                }
-                else
-                {
-                    currentPlayer = 'x'
-                }
-        }
+    if(currentPlayer === '0')
+    {
+            currentPlayer = 'x'
+    }
+    else
+    {
+        currentPlayer = 'o'
+    }
 }
 
 function fillSlot(slot)
 {
     gameBoard.board[slot] = `${currentPlayer}`
     console.log(gameBoard)
-    checkBoard()
     }
 function checkForWin(board)
 {
