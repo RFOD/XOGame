@@ -3,11 +3,7 @@ let playerWon = false
 let currentPlayer = 'o'
 let playerWhoWon = ''
 const gameBoard = {
-    board: [
-        0, 0, 0, 
-        0, 0, 0,
-        0, 0, 0
-        ]
+    board: []
 }
 function startGame()
 {
@@ -22,7 +18,6 @@ function startGame()
                     board = gameBoard.board
                     clearBoard(board)
                     fillSlot(slot)
-                    playerSwitch()
                     checkForWin(board)
 
                 }
@@ -34,11 +29,7 @@ function startGame()
 }
 function clearBoard(board)
 {
-    board = [
-        0, 0, 0, 
-        0, 0, 0,
-        0, 0, 0
-        ]
+    board = []
 }
 function endGame(currentPlayer)
 {
@@ -63,8 +54,18 @@ function playerSwitch()
 
 function fillSlot(slot)
 {
-    gameBoard.board[slot] = `${currentPlayer}`
+    board = gameBoard.board
+    if(board[slot] === undefined)
+    {
+        board[slot] = `${currentPlayer}`
+        playerSwitch()
+    }
+    else
+    {
+        console.log('Ei ei ei, cannot pass the same slot twice ma boy!!!')
+    }
     console.log(gameBoard)
+
     }
 function checkForWin(board)
 {
