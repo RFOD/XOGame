@@ -12,7 +12,7 @@ function startGame()
 {
     while(playerWon === false)
         {
-            const slot = prompt(`What slot does ${toUpperCase(currentPlayer)} want to take from 1-9`)
+            const slot = prompt(`What slot does ${currentPlayer.toUpperCase} want to take from 1-9`)
             slot--
             if (slot >= 0 && slot <= 8)
                 {
@@ -27,12 +27,12 @@ function startGame()
         }
     if(!gameIsActive) gameIsActive = 1 
 }
-endGame()
-{
+// endGame()
+// {
 
-    if(gameIsActive) gameIsActive = 0
+//     if(gameIsActive) gameIsActive = 0
 
-}
+// }
 function playerSwitch()
 {
     if(gameIsActive)
