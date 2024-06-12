@@ -45,8 +45,7 @@ function clearBoard()
     slots.forEach((slot) => {
                 slot.style = "color: #EEEEEE;"
     })
-    console.log('Board has been cleared!')
-    console.log(gameBoard.board)
+
 }
 function endGame(currentPlayer)
 {
@@ -104,7 +103,7 @@ function fillSlot(slot) {
         console.log(gameBoard);
         checkForWin(gameBoard.board);
     } else {
-        console.log('Ei ei ei, cannot pass the same slot twice ma boy!!!');
+        console.log('Ei ei ei, cannot pass the same slot twice!');
     }
 }
 function checkForWin(board)
