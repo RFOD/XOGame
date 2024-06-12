@@ -32,7 +32,7 @@ h2
     font-weight: 500;
     font-size: 3rem;
     margin: 1rem;
-    margin-top: 4rem;
+    margin-top: 14rem;
     color: #EEEEEE;
 
 }
@@ -43,6 +43,8 @@ h2
     background-color: #222831;
     font-size: 9rem;
     color: #EEEEEE;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
 }
 .button
 {
@@ -68,4 +70,18 @@ h2
 }
 .restart:hover{
     background-color: #a53232;
+}
+h3
+{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+    color: #EEEEEE;
+
+}
+.green
+{
+    color: green;
 }
