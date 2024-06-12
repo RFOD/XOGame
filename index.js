@@ -3,7 +3,11 @@ let playerWon = false
 let currentPlayer = 'o'
 let playerWhoWon = ''
 const gameBoard = {
-    board: []
+    board: [
+        '','','',
+        '','','',
+        '','',''
+    ]
 }
 function startGame()
 {
@@ -29,7 +33,11 @@ function startGame()
 }
 function clearBoard(board)
 {
-    board = []
+    board = [
+        '','','',
+        '','','',
+        '','',''
+    ]
 }
 function endGame(currentPlayer)
 {
