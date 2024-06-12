@@ -45,7 +45,6 @@ function clearBoard()
     slots.forEach((slot) => {
                 slot.style = "color: #EEEEEE;"
     })
-
 }
 function endGame(currentPlayer)
 {
